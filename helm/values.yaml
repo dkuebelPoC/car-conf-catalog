@@ -1,0 +1,18 @@
+replicaCount: 1
+image:
+  repository: ""
+  tag: ""
+  pullPolicy: IfNotPresent
+service:
+  type: ClusterIP
+  port: 80
+ingress:
+  enabled: true
+  className: ""
+  annotations: {}
+  hosts:
+    - host: frontend.local
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
