@@ -1,0 +1,20 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    # Use environment variables for datasource connection if provided, otherwise fallback to defaults.
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://postgres:5432/kfz-config-catalog-service}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:postgres}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info"
